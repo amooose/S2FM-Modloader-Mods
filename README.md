@@ -12,7 +12,7 @@ This fixes the bug of the camera accelerating to a random angle by consuming any
 1. In `\Half-Life Alyx\game\bin\win64\` rename `p4lib.dll` to `p4lib_real.dll`
 2. Extract the contents of the release.zip folder into `\Half-Life Alyx\game\bin\win64\`
 
-(Make sure you rename the original `p4lib.dll` to `p4lib_real.dll` **before extracting**)  
+(Make sure you rename the original `p4lib.dll` to `p4lib_real.dll` **and then extract**)  
 
 Your HL Alyx folder should look like this:  
 `Half-Life Alyx\game\bin\win64\mods` (containing s2fmCameraPatch.dll, etc)  
