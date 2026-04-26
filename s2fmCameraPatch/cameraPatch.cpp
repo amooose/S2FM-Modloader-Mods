@@ -19,15 +19,13 @@ static constexpr int OFF_VIRTUAL_Y = 1204; // virtual mouse Y
 
 static constexpr int OFF_WARPED_FLAG = 1208; // bool
 
-static constexpr int CENTER_X = 639; // may change? need to mess with s2fm settings
-static constexpr int CENTER_Y = 359;
-
 static int startingMode4EventCount = 0;
 
 static bool eventPosLooksStale(void* self, void* qMouseEvent)
 {
     auto base = (uint8_t*)self;
     auto ev = (uint8_t*)qMouseEvent;
+
     int mode = *(int*)(base + OFF_MODE);
 
     int anchorX = *(int*)(base + OFF_WRAP_X);
