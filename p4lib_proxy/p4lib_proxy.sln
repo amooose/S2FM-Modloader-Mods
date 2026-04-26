@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2
+VisualStudioVersion = 17.14.36401.2 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "s2fmCameraPatch", "s2fmCameraPatch\s2fmCameraPatch.vcxproj", "{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p4lib", "p4lib_proxy\p4lib_proxy\p4lib_proxy.vcxproj", "{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p4lib_proxy", "p4lib_proxy\p4lib_proxy.vcxproj", "{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Debug|x64.ActiveCfg = Debug|x64
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Debug|x64.Build.0 = Debug|x64
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Debug|x86.ActiveCfg = Debug|Win32
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Debug|x86.Build.0 = Debug|Win32
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Release|x64.ActiveCfg = Release|x64
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Release|x64.Build.0 = Release|x64
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Release|x86.ActiveCfg = Release|Win32
-		{CC31B103-AFE3-4EF5-9F4E-F3F5E38CB6FB}.Release|x86.Build.0 = Release|Win32
 		{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}.Debug|x64.ActiveCfg = Debug|x64
 		{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}.Debug|x64.Build.0 = Debug|x64
 		{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}.Debug|x86.ActiveCfg = Debug|Win32
@@ -36,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7CE35A86-E1AB-4465-B68D-C29268E2027F}
+		SolutionGuid = {3E748B7F-04A7-496F-976E-A926DAE919F9}
 	EndGlobalSection
 EndGlobal

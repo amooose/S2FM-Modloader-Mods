@@ -1,0 +1,5 @@
+LIBRARY p4lib
+
+EXPORTS
+    BinaryProperties_GetValue=p4lib_real.BinaryProperties_GetValue @1
+    CreateInterface=p4lib_real.CreateInterface @2
