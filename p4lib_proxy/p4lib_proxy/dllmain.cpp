@@ -1,6 +1,4 @@
-// dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
-
 #include <windows.h>
 #include <cwchar>
 #include <vector>
@@ -84,10 +82,7 @@ static HMODULE WaitForModule(const wchar_t* name)
 
 DWORD WINAPI InitThread(LPVOID)
 {
-    // Change/remove this depending on what your mods need.
     WaitForModule(L"sfm.dll");
-    // WaitForModule(L"ifm.dll");
-
     LoadAllMods();
     return 0;
 }
@@ -97,7 +92,6 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD reason, LPVOID)
     if (reason == DLL_PROCESS_ATTACH)
     {
         DisableThreadLibraryCalls(hinst);
-
         LoadReal();
         CreateThread(nullptr, 0, InitThread, nullptr, 0, nullptr);
     }
