@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "s2fmCameraPatch", "s2fmCame
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p4lib", "p4lib_proxy\p4lib_proxy\p4lib_proxy.vcxproj", "{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "S1FM_Cam_For_S2FM", "S1FM_Cam_For_S2FM\S1FM_Cam_For_S2FM.vcxproj", "{B42F27E9-ADCB-459F-A364-A84679A6DABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}.Release|x64.Build.0 = Release|x64
 		{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}.Release|x86.ActiveCfg = Release|Win32
 		{AA7E7D9D-8FEE-403A-A944-3C8F7FCA7A10}.Release|x86.Build.0 = Release|Win32
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Debug|x64.ActiveCfg = Debug|x64
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Debug|x64.Build.0 = Debug|x64
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Debug|x86.ActiveCfg = Debug|Win32
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Debug|x86.Build.0 = Debug|Win32
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Release|x64.ActiveCfg = Release|x64
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Release|x64.Build.0 = Release|x64
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Release|x86.ActiveCfg = Release|Win32
+		{B42F27E9-ADCB-459F-A364-A84679A6DABB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,10 +41,46 @@ static bool eventPosLooksStale(void* self, void* qMouseEvent)
     if (mode == 4 && startingMode4EventCount > 50) {
         return false;
     }
-
-    return std::abs(dx) > 120 || std::abs(dy) > 120;
+    int errorThreshhold = 100;
+    return std::abs(dx) > errorThreshhold || std::abs(dy) > errorThreshhold;
 }
+static void DebugEventVsAnchor(const char* stage, void* self, void* qMouseEvent)
+{
+    auto base = (uint8_t*)self;
+    auto ev = (uint8_t*)qMouseEvent;
 
+    int mode = *(int*)(base + OFF_MODE);
+
+    int anchorX = *(int*)(base + OFF_WRAP_X);
+    int anchorY = *(int*)(base + OFF_WRAP_Y);
+
+    int eventX = *(int*)(ev + 32);
+    int eventY = *(int*)(ev + 36);
+
+    int virtualX = *(int*)(base + OFF_VIRTUAL_X);
+    int virtualY = *(int*)(base + OFF_VIRTUAL_Y);
+
+    char buf[512];
+    sprintf_s(
+        buf,
+        "[debug][%s] mode=%d event=(%d,%d) anchor=(%d,%d) virtual=(%d,%d) eventDiff=(%d,%d) virtualDiff=(%d,%d) warped=%d\n",
+        stage,
+        mode,
+        eventX,
+        eventY,
+        anchorX,
+        anchorY,
+        virtualX,
+        virtualY,
+        eventX - anchorX,
+        eventY - anchorY,
+        virtualX - anchorX,
+        virtualY - anchorY,
+        *(BYTE*)(base + OFF_WARPED_FLAG)
+    );
+
+    OutputDebugStringA(buf);
+}
 static void rewriteEventPosToAnchor(void* self, void* qMouseEvent)
 {
     auto base = (uint8_t*)self;
@@ -63,6 +99,7 @@ static void rewriteEventPosToAnchor(void* self, void* qMouseEvent)
 
 static void __fastcall hkMouseEvent(void* self, void* qMouseEvent)
 {
+
     auto base = (uint8_t*)self;
     int modeBefore = *(int*)(base + OFF_MODE);
     int mode = *(int*)(base + OFF_MODE);
@@ -74,13 +111,16 @@ static void __fastcall hkMouseEvent(void* self, void* qMouseEvent)
         startingMode4EventCount++;
     }
 
-    if (modeBefore == 4 && eventPosLooksStale(self, qMouseEvent))
-    {
-        rewriteEventPosToAnchor(self, qMouseEvent);
-    }
-    oMouseEvent(self, qMouseEvent);
-}
+    if (modeBefore == 4 && startingMode4EventCount < 50) {
 
+        if (eventPosLooksStale(self, qMouseEvent)) {
+            rewriteEventPosToAnchor(self, qMouseEvent);
+        }
+    }
+        oMouseEvent(self, qMouseEvent);
+        //DebugEventVsAnchor("AFTER_ORIGINAL", self, qMouseEvent);
+    
+}
 bool installViewportMouseHook(uintptr_t moduleBase)
 {
     uintptr_t target = moduleBase + 0x160400;
