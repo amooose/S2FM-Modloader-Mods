@@ -26,9 +26,6 @@
     <ClCompile Include="cameraPatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\include\safetyhook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

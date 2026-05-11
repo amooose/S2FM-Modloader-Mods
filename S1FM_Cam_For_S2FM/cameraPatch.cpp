@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include <Windows.h>
 #include <intrin.h>
 #include <cstdint>

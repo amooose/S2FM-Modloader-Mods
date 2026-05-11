@@ -1,5 +1,4 @@
 
-#include "pch.h"
 #include <stdio.h>
 #include <Windows.h>
 #include "MinHook.h"
