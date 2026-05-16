@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <MinHook.h>
 #include <stdio.h>
+#include "safetyhook.hpp"
 
 bool WriteBytes(void* dst, const void* src, size_t size)
 {
@@ -109,7 +110,7 @@ BOOL APIENTRY DllMain(
             uintptr_t moduleBase = reinterpret_cast<uintptr_t>(hSfm);
             uintptr_t camToM1 = moduleBase + 0x160516;
             uintptr_t dragToM2 = moduleBase + 0x1610A9;
-            uintptr_t deselectFix = moduleBase + 0x15FC32;
+            uintptr_t deselectFix = moduleBase + 0x165534;//0x15FC32;
 
             //Patch to make camera mouse1 instead of mouse2
             BYTE v1 = 0x01;
@@ -119,17 +120,17 @@ BOOL APIENTRY DllMain(
             BYTE v2 = 0x02;
             WriteBytes(reinterpret_cast<void*>(dragToM2), &v2, 1);
 
-            //Patch to fix introduced side-effect bug of not being able to deselect bones via clicking empty space with mouse1
-            BYTE v3[] = {
-                0x29, 0xC9, 0x90
-            };
-            WriteBytes(reinterpret_cast<void*>(deselectFix), v3, sizeof(v3));
+
+            BYTE v3 = 0xEB;
+            WriteBytes(reinterpret_cast<void*>(deselectFix), &v3, 1);
+           // WriteBytes(reinterpret_cast<void*>(deselectFix), v3, sizeof(v3));
 
             //Hook to check for camera movement on the Clip Editor
             //If camera movement takes place where a model/element exists in our crosshair, it lags the movement some
             //This skips the check (bones/model/etc selection doesnt need to occur via the Clip Editor viewport)
             //And removes the lag
             InstallSceneElementHook();
+
         }
 
         break;
