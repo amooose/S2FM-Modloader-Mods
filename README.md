@@ -8,6 +8,9 @@ We do a little bit of DLL Proxy Hijacking using a custom p4lib.dll (the mod load
 ## S2FM Camera Fix
 This fixes the bug of the camera accelerating to a random angle by consuming any large movement camera adjustments in the first few hundred milliseconds upon each time the viewport becomes active.
 
+## S1FM Cam For S2FM
+Sets the camera controls as mouse1 to look, and mouse 2 to select-lasso
+
 ### Installation
 1. In `\Half-Life Alyx\game\bin\win64\` rename `p4lib.dll` to `p4lib_real.dll`
 2. Extract the contents of the release.zip folder into `\Half-Life Alyx\game\bin\win64\`
